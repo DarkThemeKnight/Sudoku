@@ -1,0 +1,80 @@
+/* Button Styles */
+.red-button {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to bottom, #FF5722, #F44336); /* Red gradient */
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 10,0,0,1 ); /* Box shadow */
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+    -fx-transition: all 0.3s;
+}
+.custom-button {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(#4CAF50, #388E3C); /* Gradient background */
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 10,0,0,1 ); /* Box shadow */
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+    -fx-transition: all 0.3s;
+}
+
+/* Hover Animation */
+.custom-button:hover {
+    -fx-background-color: linear-gradient(#388E3C, #1B5E20); /* Gradient change on hover */
+    -fx-scale-x: 1.05; /* Scale effect on hover */
+    -fx-scale-y: 1.05;
+}
+.red-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #F44336, #FF5722); /* Red gradient on hover */
+    -fx-scale-x: 1.05; /* Scale effect on hover */
+    -fx-scale-y: 1.05;
+}
+/* Click Animation */
+.custom-button:pressed {
+    -fx-background-color: linear-gradient(#1B5E20, #0D3A12); /* Gradient change when pressed */
+    -fx-scale-x: 0.95; /* Scale effect when pressed */
+    -fx-scale-y: 0.95;
+}
+/* Click Animation */
+.red-button:pressed {
+    -fx-background-color: #D32F2F; /* Red color when pressed */
+    -fx-scale-x: 0.95; /* Scale effect when pressed */
+    -fx-scale-y: 0.95;
+}
+
+
+/* Pulse Animation */
+@keyframes pulse {
+    from { -fx-scale-x: 1; -fx-scale-y: 1; }
+    to { -fx-scale-x: 1.1; -fx-scale-y: 1.1; }
+}
+.red-button:focus {
+    animation: pulse 1s infinite alternate; /* Apply pulse animation */
+}
+.custom-button:focus {
+    animation: pulse 1s infinite alternate; /* Apply pulse animation */
+}
+
+/* Main Pane Styles */
+.main-pane {
+    -fx-background-color: #F5F5F5; /* Light grey background */
+    -fx-border-color: #336699; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-border-radius: 10px; /* Border radius */
+    -fx-padding: 20px; /* Padding */
+    -fx-effect: dropshadow(gaussian, #336699, 5, 0, 0, 0); /* Box shadow */
+    -fx-background-radius: 10px; /* Background radius to match border radius */
+
+    /* Animation */
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: all 0.3s;
+}

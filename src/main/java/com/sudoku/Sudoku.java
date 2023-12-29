@@ -53,7 +53,23 @@ public class Sudoku {
             matrix[row][col] = input;
         }
     }
-
+    public boolean play(int number, int row, int col){
+        if (!isValid(number,row,col)){
+            return false;
+        }
+        matrix[row][col] = number;
+        return true;
+    }
+    public boolean gameCompleted(){
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (matrix[i][j]  == 0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     public boolean isValid(int number, int row, int col) {
         ExecutorService executor = Executors.newFixedThreadPool(3); // Creating a thread pool
         List<Callable<Boolean>> tasks = getCallables(number, row, col);
@@ -125,9 +141,6 @@ public class Sudoku {
                     sb.append(" | ");
                 }
             }
-
-
-
             sb.append(" | * ").append(" | ");
             for (int j = 0; j < 3; j++) {
              sb.append(matrix[i][j+3]);
@@ -135,8 +148,6 @@ public class Sudoku {
                  sb.append(" | ");
              }
             }
-
-
             sb.append(" | * ").append(" | ");
             for (int j = 0; j < 3; j++) {
                 sb.append(matrix[i][j+6]);
@@ -145,17 +156,14 @@ public class Sudoku {
                 }
             }
             sb.append(" | *\n");
-
         }
         sb.append("***************************************************\n");
         return sb.toString();
     }
-
-
     public static void main(String[] args) {
         Sudoku sudoku = new Sudoku();
 //        sudoku.initializeGrid(1);
-//        sudoku.initializeGrid(2);
+        sudoku.initializeGrid(2);
         System.out.println(sudoku);
     }
 }
